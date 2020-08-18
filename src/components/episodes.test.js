@@ -10,14 +10,26 @@ test('re-renders correctly with selected season', () => {
     rerender(<Episodes error='' episodes={data}/>)
     const episodes = getByText(/name/i)
     expect(episodes).toBeTruthy();
+    expect(queryAllByText(/season/i)).toHaveLength(2);
 })
 
-const data = [{
+const data = [
+  {
     id: "1",
-    image: { medium: "medium_image"},
+    image: { medium: "medium_image" },
     name: "name",
     season: 3,
     number: 2,
     summary: "<p>Summary</p>",
-    runtime: 20
-}]
+    runtime: 20,
+  },
+  {
+    id: "2",
+    image: { medium: "medium_image" },
+    name: "Mike",
+    season: 3,
+    number: 1,
+    summary: "<p>Summary</p>",
+    runtime: 27,
+  },
+];
